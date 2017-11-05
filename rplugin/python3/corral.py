@@ -19,18 +19,11 @@ from subprocess import check_output, CalledProcessError
 
 import neovim as nv
 
-# Patch in a helper for getting command output without printing to
-# the status line.
-def _query(self, command):
-    return self.command_output('silent {}'.format(command)).strip()
-
-nv.Nvim.command_query = _query
-
-# And another for getting the working directory, with a trailing slash so it
-# plays nice with `os.path.dirname`.
+# Patch in a helper for getting the working directory, with a trailing slash so
+# it plays nice with `os.path.dirname`.
 @property
 def _cwd(self):
-    return self._session.command_query('pwd') + '/'
+    return self._session.eval('getcwd()') + '/'
 
 nv.api.nvim.Current.directory = _cwd
 
