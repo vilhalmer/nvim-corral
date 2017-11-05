@@ -43,7 +43,7 @@ allowing this information to be used by other plugins.
 **A:** It's not a perfect metaphor, ok? (More seriously though, corral only
     concerns itself with the behavior of buffers outside of the repository.)
 
-**Q:** Can it support *<my favorite VCS>*?
+**Q:** Can it support *my favorite VCS*?
 
 **A:** Yeah, probably. All that corral needs to support a given VCS is 
     a command in the `vcs_commands` dictionary that returns the root of a
