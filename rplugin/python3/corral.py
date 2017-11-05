@@ -157,7 +157,10 @@ class Corral(object):
         """
         Invert the enabled state. Good for use with :map.
         """
-        self.enabled = not self.enabled
+        if self.enabled:
+            self.disable()
+        else:
+            self.enable()
 
     #
     # VCS helpers
