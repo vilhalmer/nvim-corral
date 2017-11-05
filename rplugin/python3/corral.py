@@ -104,6 +104,9 @@ class Corral(object):
         Update whether corral is active based on whether the new working
         directory is a repository.
         """
+        if not self.enabled:
+            return
+
         new_vcs, new_repo = self.discover_vcs(self.nvim.current.directory)
         if not new_repo == self.current_repo:
             if new_repo:
