@@ -149,6 +149,8 @@ class Corral(object):
         Stop corralling buffers. Does not undo changes to existing buffers.
         """
         self.enabled = False
+        self.current_repo = None
+        self.current_vcs = None
 
     @nv.command('CorralToggle')
     def toggle(self):
