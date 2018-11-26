@@ -17,7 +17,10 @@ import contextlib
 import os
 from subprocess import check_output, CalledProcessError
 
-import neovim as nv
+try:
+    import pynvim as nv
+except ImportError:
+    import neovim as nv
 
 # Patch in a helper for getting the working directory, with a trailing slash so
 # it plays nice with `os.path.dirname`.
